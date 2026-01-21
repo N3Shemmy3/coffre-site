@@ -1,37 +1,7 @@
 <script setup lang="ts">
 import {useLenis, VueLenis} from 'lenis/vue'
 import type Lenis from "lenis";
-
-
-const links = [
-  {
-    title: "GitHub",
-    url: "https://github.com/N3shemmy3/Coffre",
-  },
-  {
-    title: "Figma(wip)",
-    url: "https://x.com/N3Shemmy3",
-  },
-  {
-    title: "Donate",
-    url: "https://ko-fi.com/n3shemmy3",
-  },
-]
-
-const socials = [
-  {
-    title: "Telegram",
-    url: "https://t.me/N3shemmy3/",
-  },
-  {
-    title: "X(Twitter)",
-    url: "https://x.com/N3Shemmy3",
-  },
-  {
-    title: "Email",
-    url: "tel:n3shemmy3@gmail.com",
-  },
-]
+import Header from "~/components/Header.vue";
 
 
 const scrollCallback = (lenis: Lenis) => {
@@ -46,46 +16,45 @@ const lenis = useLenis(scrollCallback, 0) // where 0 is the default callback pri
   <VueLenis root/>
   <div class="flex flex-col w-dvw overflow-auto overflow-y-scroll">
 
-    <header class="flex flex-col px-6 py-2 md:px-16 2xl:py-24 2xl:px-8 pt-60">
-      <nav class="w-full *:h-fit grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-12">
+    <Header/>
 
-        <div id="contribution" class="flex flex-col gap-2">
-          <p class="font-medium">Contribute</p>
-          <ol id="contribution-list" class="flex flex-col gap-0.5">
-            <NuxtLink
-                v-for="link in links"
-                :key="link.title"
-                :to="link.url"
-                target="_blank"
-                class="flex gap-1 group"
-            >
-              <Icon class="hidden group-hover:flex size-8" name="ic:arrow-right"/>
-              <p class="text-lg"> {{ link.title }}</p>
-            </NuxtLink>
+    <main class="flex flex-col gap-8 pb-14">
+      <section>
+        <Container class="flex flex-col gap-4 md:gap-6 xl:gap-8">
+          <label class="font-medium md:text-base">Status: <strong>Rewriting(Design Phase)</strong></label>
+
+          <div>
+            <h2 class="font-bold text-3xl md:text-4xl lg:text-6xl tracking-tighter md:mb-4">
+              Coffre: <br/>
+              Personal finance made simple
+            </h2>
+            <p class="md:text-lg max-w-150">
+              Track your income, expenses, and transfers with ease & gain insights into your spending habits,
+              and achieve your financial goals.</p>
+          </div>
+
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <div class="flex flex-col gap-2">
+            <h4 class="text-2xl md:text-2xl lg:text-4xl tracking-tighter">
+              Progress
+            </h4>
+            <p class="md:text-lg max-w-150">
+              Currently in the design phase of development and will very quickly start development once completed.
+            </p>
+          </div>
+
+          <ol class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 xl:gap-6 mt-4 md:mt-6 lg:mt-8">
+            <li v-for="n in 9" class="rounded-lg overflow-clip w-full aspect-9/16 ">
+              <img :src="'/img/'+n+'.webp'" alt="screen design">
+            </li>
           </ol>
-        </div>
-
-        <div id="socials" class="flex flex-col gap-2">
-          <p class="font-medium">Socials</p>
-          <ol id="socials-list" class="flex flex-col gap-0.5">
-            <NuxtLink
-                v-for="link in socials"
-                :key="link.title"
-                :to="link.url"
-                target="_blank"
-                class="flex gap-1 group"
-            >
-              <Icon class="hidden group-hover:flex size-8" name="ic:arrow-right"/>
-              <p class="text-lg"> {{ link.title }}</p>
-            </NuxtLink>
-          </ol>
-        </div>
-
-      </nav>
-    </header>
-
-    <div v-for="n in 100" class="h-40">
-    </div>
+        </Container>
+      </section>
+    </main>
 
   </div>
 </template>
@@ -98,5 +67,8 @@ body {
   color: var(--color-colorOnBackground);
   margin: 0;
   padding: 0;
+  font-feature-settings: on;
+  font-kerning: normal;
+  letter-spacing: -0.4px;
 }
 </style>
