@@ -30,7 +30,6 @@ const scrollCallback = (lenis: Lenis) => {
   // called on every scroll
   // useLenis provides the lenis instance as an argument
 }
-
 const lenis = useLenis(scrollCallback, 0) // where 0 is the default callback priority
 </script>
 
