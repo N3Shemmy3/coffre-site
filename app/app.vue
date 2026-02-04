@@ -3,7 +3,29 @@ import {useLenis, VueLenis} from 'lenis/vue'
 import type Lenis from "lenis";
 import Header from "~/components/Header.vue";
 
-
+if (import.meta.server) {
+  const pageTitle = "Coffre | Personal Expense Tracker";
+  const pageDescription =
+      "Helping you record and track your finances from the palm of your hands";
+  const pageImage = "https://coffre.n3shemmy3.dev/preview.webp";
+  useSeoMeta({
+    title: pageTitle,
+    ogTitle: pageTitle,
+    description: pageDescription,
+    ogDescription: pageDescription,
+    ogType: "website",
+    ogImage: pageImage,
+    ogUrl: "https://coffre.n3shemmy3.dev",
+    twitterCard: "summary_large_image",
+    twitterDescription: pageDescription,
+    twitterImage: pageImage,
+  });
+}
+useHeadSafe({
+  htmlAttrs: {
+    lang: "en",
+  },
+});
 const scrollCallback = (lenis: Lenis) => {
   // called on every scroll
   // useLenis provides the lenis instance as an argument
