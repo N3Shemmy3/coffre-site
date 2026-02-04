@@ -68,7 +68,7 @@ const lenis = useLenis(scrollCallback, 0) // where 0 is the default callback pri
             </p>
           </div>
 
-          <ol class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 xl:gap-6 mt-4 md:mt-6 lg:mt-8">
+          <ol class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-4 xl:gap-6 mt-4 md:mt-6 lg:mt-8">
             <li v-for="n in 9"
                 class="rounded-3xl outline-4 outline-offset-1 outline-gray-100/75 overflow-clip w-full aspect-9/16 ">
               <img :src="'/img/'+n+'.webp'" alt="screen design">
